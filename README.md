@@ -50,3 +50,92 @@ Update your database credentials in:
 private static final String URL = "jdbc:mysql://localhost:3306/sangeet";
 private static final String USER = "root";
 private static final String PASS = "your_password";
+
+## 🗄 Database Schema (Run Before Starting App)
+```
+
+### Create Database
+```sql
+CREATE DATABASE sangeet;
+USE sangeet;
+
+CREATE TABLE listeners (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    display_name VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE artists (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    display_name VARCHAR(255) NOT NULL,
+    followers INT DEFAULT 0
+);
+
+
+CREATE TABLE admins (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    display_name VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE songs (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    artist_id INT,
+    title VARCHAR(255) NOT NULL,
+    path VARCHAR(1024) NOT NULL,
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (artist_id) REFERENCES artists(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE followers (
+    listener_id INT,
+    artist_id INT,
+    PRIMARY KEY (listener_id, artist_id),
+    FOREIGN KEY (listener_id) REFERENCES listeners(id) ON DELETE CASCADE,
+    FOREIGN KEY (artist_id) REFERENCES artists(id) ON DELETE CASCADE
+);
+
+
+```
+### Place cover images inside:
+
+```
+src/com/Sangeet/assets/covers/
+
+Naming must match the song ID:
+
+1.jpg
+2.jpg
+3.jpg
+...
+
+```
+
+### Run the Application
+
+- Import the project into IntelliJ IDEA
+- Configure MySQL credentials inside:
+```
+src/com/Sangeet/dao/DBConnection.java
+```
+- Run the SQL schema provided above
+- Build & run Main.java
+- Sign up and Log in as Listener, Artist, or Admin.
+
+### Sangeet is a complete Java-based music streaming platform featuring:
+
+- Clean, modern, Spotify-inspired UI
+- Role-based navigation (Listener / Artist / Admin)
+- Song upload, playback, and follow system
+- Full MySQL database backend
+- Smooth VLCJ audio playback with multithreading
+
+
+
