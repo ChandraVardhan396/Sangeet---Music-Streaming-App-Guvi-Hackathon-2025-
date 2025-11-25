@@ -7,6 +7,12 @@ role-based dashboards, smooth multithreaded audio playback, and a clean dark the
 
 ---
 
+## Demo Image
+
+![Sangeet - Music Streaming Java App](./screenshots/screen1.png)  
+![Sangeet - Music Streaming Java App](./screenshots/screen2.png) 
+*Example of music player using Sangeet - Music Streaming Java App*
+
 ## 🚀 Features
 
 ### 🎧 Listener
