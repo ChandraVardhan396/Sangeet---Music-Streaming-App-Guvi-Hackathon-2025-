@@ -1,55 +1,52 @@
-Sangeet — Music Streaming App (Guvi Hackathon 2025)
+# Sangeet — Music Streaming App (Guvi Hackathon 2025)
 
-Sangeet is a full-featured Java-based music streaming application with a modern, Spotify-inspired UI. Listeners can play songs and follow artists, artists can upload and manage their music, and admins can control platform content. The app uses JDBC + MySQL, supports role-based dashboards, HD UI design, and smooth multithreaded audio playback.
+Sangeet is a Java-based music streaming app with a modern, Spotify-inspired UI.  
+Listeners can play songs and follow artists, artists can upload and manage their music,  
+and admins can oversee all content. Built using JDBC + MySQL, the app includes  
+role-based dashboards, smooth multithreaded audio playback, and a clean dark theme.
 
-🚀 Features
-🎧 Listener
+---
 
-Browse and play all songs
+## 🚀 Features
 
-Follow / unfollow artists
+### 🎧 Listener
+- Browse and play all songs  
+- Follow / Unfollow artists  
+- View complete artist list  
+- See latest song collection  
 
-View artist list
+### 🎤 Artist
+- Upload new songs  
+- Delete previously uploaded songs  
+- View total follower count  
 
-Latest song collection
+### 🛠 Admin
+- View all artists  
+- Delete any artist  
+- Automatically remove songs & followers of deleted artist  
 
-🎤 Artist
+---
 
-Upload songs
+## 🧱 Tech Stack
+- Java  
+- Swing (FlatLaf Theme)  
+- JDBC  
+- MySQL  
+- VLCJ (Audio Playback)  
+- Multithreading (PlayerThread)
 
-Delete own songs
+---
 
-View follower count in dashboard
+## ⚙️ Setup Instructions
 
-🛠 Admin
+### 1️⃣ Configure MySQL (Required)
+Sangeet uses a **local MySQL server**.
 
-View all artists
+Update your database credentials in:
 
-Delete artist accounts
+`src/com/Sangeet/dao/DBConnection.java`
 
-Remove all songs of an artist
-
-🧱 Tech Stack
-
-Java
-
-Swing + FlatLaf
-
-MySQL
-
-JDBC
-
-Multithreading
-
-VLCJ (for audio playback)
-
-📌 Project Setup & Requirements
-1️⃣ Install Requirements
-
-JDK 17 or later
-
-MySQL Server (local)
-
-IntelliJ IDEA (recommended)
-
-VLC installed (for VLCJ playback)
+```java
+private static final String URL = "jdbc:mysql://localhost:3306/sangeet";
+private static final String USER = "root";
+private static final String PASS = "your_password";
