@@ -47,14 +47,16 @@ Update your database credentials in:
 `src/com/Sangeet/dao/DBConnection.java`
 
 ```java
-private static final String URL = "jdbc:mysql://localhost:3306/sangeet";
-private static final String USER = "root";
-private static final String PASS = "your_password";
+private static final String HOST = "localhost";
+    private static final String PORT = "3306";
+    private static final String NAME = "sangeet";
+    private static final String USER = "root";
+    private static final String PASS = "password";
 
-## 🗄 Database Schema (Run Before Starting App)
+
 ```
 
-### Create Database
+### Create Database Schema (Run Before Starting App)
 ```sql
 CREATE DATABASE sangeet;
 USE sangeet;
